@@ -5,6 +5,7 @@ chrome.extension.onRequest.addListener(
   function(request, sender, sendResponse) {
     if(request.type == "ourSite"){
         //console.log(sender.tab.url);
+	//console.log("our site");
         id = sender.tab.url.split("=")[1];
         //console.log(id);
         var urlReceived;
@@ -24,10 +25,12 @@ chrome.extension.onRequest.addListener(
         //console.log("our tab ids: ") 
         //for(var i in ourTabs) console.log(i);
         //console.log("this tab: " + sender.tab.id);
+	//console.log("external site");
         if(sender.tab.id in ourTabs){
+	//console.log("in tabs");
           //console.log('the tab is in our tabs. ');
           // redirection done already. so we delete it.
-          sendResponse({'message' : 'here is the highlight data', 'type' : 'highlight', 'data' : ourTabs[sender.tab.id]['data']});
+          sendResponse({'data' : ourTabs[sender.tab.id]['data']});
           //console.log(ourTabs[sender.tab.id].data);
           delete ourTabs[sender.tab.id];
         }else{
