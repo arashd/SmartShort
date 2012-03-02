@@ -5,7 +5,6 @@ var curelem = document.body;
 var result = [];
 var loaded = false;
 
-
 var search = function(cur,target)
 {
 	//console.log(cur);
@@ -31,6 +30,8 @@ chrome.extension.sendRequest({'type' : 'externalSiteStart'}, function(response) 
   		search(document.body, response.data.shared);
   		console.log(result);
 		if(result.length !== 0){
+			console.log('highlighting');
+			$(result[0]).highlight(response.data.shared);
 			result[0].scrollIntoView();
 		}	
 	}
