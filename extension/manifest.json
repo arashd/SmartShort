@@ -19,7 +19,7 @@
       "js": ["static/js/jquery-1.7.1.min.js", "static/js/jquery.highlight-3.js", "static/js/externalScript.js"]
     }
   ],
-  "version": "1.4",
+  "version": "1.5",
   "description": "Take others to what you're really sharing.",
   "browser_action": {
     "default_icon": "static/images/icon.png",
